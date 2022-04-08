@@ -128,6 +128,52 @@ return "First name: " + this.firstName + "\nLast name: " + this.lastName +
 /* Here we are using the push method to add the contact into the array
 */
 let addressbookArray = new Array();
+
+
+	
+	/**
+	* Function to check if the contact exists in array or not.
+	*Here we are passing  the firstName lastName of the contact to edit
+	* @returns Will return true if contact exists
+	*/
+    function contactExists(firstName, lastName) {
+        return addressbookArray.some(contact => contact.firstName == firstName && contact.lastName == lastName);
+    }
+    
+    /**
+     *  Function to edit the contact
+     */
+    function editContact(firstName, lastName, property, newValue) {
+        if (contactExists(firstName, lastName)) {
+            switch (property) {
+                case "address":
+                    addressbookArray.find((contact) => contact.firstName == firstName).address = newValue;
+                    break;
+                case "city":
+                    addressbookArray.find((contact) => contact.firstName == firstName).city = newValue;
+                    break;
+                case "state":
+                    addressbookArray.find((contact) => contact.firstName == firstName).state = newValue;
+                    break;
+                case "zip":
+                    addressbookArray.find((contact) => contact.firstName == firstName).zip = newValue;
+                    break;
+                case "phoneNumber":
+                    addressbookArray.find((contact) => contact.firstName == firstName).phoneNumber = newValue;
+                    break;
+                case "email":
+                    addressbookArray.find((contact) => contact.firstName == firstName).email = newValue;
+                    break;
+                default:
+                    console.log("Enter valid property");
+            }
+        }
+        else {
+            console.log("Contact Does Not Exist");
+        }
+    }
+   
+  
 try{
     addressbookArray.push(new Contact("Rani","Dhumma","Shelgi","Solapur","Maharashtra","12345", "9999922222","rd@gmail.com"));
 }
@@ -143,6 +189,11 @@ try{
 
 
     console.log(addressbookArray);
+
+     
+   console.log("\nAfter Editing Contact")
+   editContact("Rani", "Dhumma", "address", "Mumbai");
+   console.log(addressbookArray);
 
     
 
