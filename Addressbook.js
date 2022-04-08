@@ -125,14 +125,24 @@ return "First name: " + this.firstName + "\nLast name: " + this.lastName +
 "\nPhone number: " + this.phoneNumber + "\nEmail: " + this.email;
 }}
 
+/* Here we are using the push method to add the contact into the array
+*/
+let addressbookArray = new Array();
 try{
-let contact = new Contact("Rani","Dhumma","Shelgi","Solapur","Maharashtra",12345,9999922222,"rd@gmail.com");
-console.log(contact.toString());
+    addressbookArray.push(new Contact("Rani","Dhumma","Shelgi","Solapur","Maharashtra","12345", "9999922222","rd@gmail.com"));
 }
-catch {
-console.log (e);
+catch(e){
+    console.error(e);
+}
+
+try{
+    addressbookArray.push(new Contact("Kavya","Kamra","Xyz","Solapur","Maharashtra","415012","9995551420","sk@gmail.com"));
+}catch(e){
+    console.error(e);
 }
 
 
+    console.log(addressbookArray);
 
+    
 
